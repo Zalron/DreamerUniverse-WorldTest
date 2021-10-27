@@ -2,9 +2,8 @@
 
 #include "flecs.h"
 
-struct ChunkComponent
+struct ChunkComponents
 {
-public:
     const uint8_t NumberOfVoxelsInAChunk = 32;
 
     struct ChunkPosition
@@ -14,14 +13,9 @@ public:
         uint64_t zPosition;
     };
 
-    struct ChunkCreationState
-    {
-
-    };
-
     struct ChunkState
     {
-
+        uint8_t chunkState;
     };
 
     struct ChunkInfo
@@ -29,10 +23,13 @@ public:
 
     };
 
-
-    ChunkComponent(flecs::world& world)
+    ChunkComponents(flecs::world& world)
     {
-        world.module<ChunkComponent>();
+        world.module<ChunkComponents>();
+
+        world.system<ChunkComponents::ChunkPosition>();
+        world.system<ChunkComponents::ChunkInfo>();
+        world.system<ChunkComponents::ChunkState>();
     }
 
 };

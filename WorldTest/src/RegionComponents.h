@@ -4,7 +4,7 @@
 
 struct RegionComponents
 {
-    const uint8_t NumberOfChunksInARegion = 32;
+    static const uint8_t NumberOfChunksInARegion = 32;
 
     struct RegionPosition
     {
@@ -15,11 +15,20 @@ struct RegionComponents
 
     struct RegionState
     {
+        uint8_t regionState;
+    };
 
+    struct RegionInfo
+    {
+        uint16_t regionInfo;
     };
 
     RegionComponents(flecs::world& world)
     {
         world.module<RegionComponents>();
+
+        world.component<RegionPosition>();
+        world.component<RegionState>();
+        world.component<RegionInfo>();
     }
 };

@@ -7,8 +7,18 @@ include_directories(WorldTest/include)
 include_directories(WorldTest/src)
 
 add_executable(WorldTest
-        WorldTest/src/main.cpp
-        WorldTest/src/Chunk.cpp
-        WorldTest/src/Chunk.h
         WorldTest/include/flecs.c
-        WorldTest/include/flecs.h WorldTest/src/ChunkComponent.h WorldTest/src/VoxelComponents.h WorldTest/src/RegionComponents.h)
+        WorldTest/include/flecs.h
+        WorldTest/include/flecs_os_api_stdcpp.cpp
+        WorldTest/include/flecs_os_api_stdcpp.h
+        WorldTest/src/main.cpp
+        WorldTest/src/RegionCreation.cpp
+        WorldTest/src/RegionCreation.h
+        WorldTest/src/ChunkComponents.h
+        WorldTest/src/VoxelComponents.h
+        WorldTest/src/RegionComponents.h
+        WorldTest/src/ChunkCreation.cpp
+        WorldTest/src/ChunkCreation.h
+        WorldTest/src/BioneCreation.cpp
+        WorldTest/src/BioneCreation.h
+        WorldTest/src/BioneComponents.h)
